@@ -43,7 +43,8 @@ form {
     display: grid;
 }
 
-form button {
+form button,
+.notification button {
     padding: 10px 22px;
     font-weight: 600;
     font-size: 16px;
@@ -116,13 +117,6 @@ form textarea {
     border-bottom: solid blue 4px;
 }
 
-.notification {
-    border: solid green;
-    padding: 10px;
-    border-radius: 8px;
-    text-align: center;
-    background-color: rgba(144, 238, 144, 0.664);
-}
 
 .form__section.textarea {
     position: relative;
@@ -133,4 +127,25 @@ form textarea {
     top: 0;
     right: 0;
     font-size: 12px;
+}
+
+
+.notification {
+    text-align: center;
+}
+
+.notification p {
+    padding: 10px;
+    border-radius: 8px;
+    border: solid green;
+    margin-bottom: 2rem;
+    background-color: rgba(144, 238, 144, 0.664);
+}
+
+.show-n {
+    display: block;
+}
+
+.hide-n {
+    display: none;
 }

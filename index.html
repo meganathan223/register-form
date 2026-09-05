@@ -22,27 +22,39 @@
 <body>
     <div class="container">
         <div class="container__form">
+
+            <!-- form heading -->
             <div class="form__header">
                 <h2 class="heading signin">Sign In</h2>
                 <h2 class="heading register border">Register</h2>
             </div>
-            <div class="notification" style="display: none;">
-                <p>
-                    Registered Successfully
-                    <i class="fa-solid fa-circle-check" style="color: green;font-size: 20px;"></i>
-                </p>
+
+            <!-- form submit notifications -->
+            <div class="notification">
+                <div class="signin-n hide-n">
+                    <p>Welcome back, <span class="uname"></span></p>
+                </div>
+                <div class="register-n hide-n">
+                    <p>
+                        Registered Successfully
+                        <i class="fa-solid fa-circle-check" style="color: green;font-size: 20px;"></i>
+                    </p>
+                    <button>Get Started</button>
+                </div>
             </div>
+
+            <!-- form sections -->
             <div class="sections">
                 <!-- Sign In Form -->
                 <form action="index.html" id="signin" style="display: none;">
                     <div class="form__section">
                         <label for="email">Email:</label>
-                        <input type="text" id="email" placeholder="example@email.com">
+                        <input type="text" id="email" placeholder="example@email.com" class="email-s1">
                         <p class="err-msg"></p>
                     </div>
                     <div class="form__section">
                         <label for="password">Password:</label>
-                        <input type="password" id="password" min="6">
+                        <input type="password" id="password" min="6" class="pw-1">
                         <p class="err-msg"></p>
                     </div>
 
@@ -65,12 +77,12 @@
                     </div>
                     <div class="form__section">
                         <label for="email">Email:</label>
-                        <input type="text" id="email" placeholder="example@email.com">
+                        <input type="text" id="email" placeholder="example@email.com" class="email-2">
                         <p class="err-msg"></p>
                     </div>
                     <div class="form__section">
                         <label for="password">Password:</label>
-                        <input type="password" id="password" min="6">
+                        <input type="password" id="password" min="6" class="pw-2">
                         <p class="err-msg"></p>
                     </div>
                     <div class="form__section textarea">
