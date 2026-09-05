@@ -1,10 +1,13 @@
-const form = document.querySelector('form');
+// const form = document.querySelectorAll('form');
 const signinForm = document.getElementById('signin');
 const registerForm = document.getElementById('register');
 
 const username = document.querySelector('#name');
-const email = document.querySelector('#email');
-const password = document.querySelector('#password');
+const email1 = document.querySelector('.email-1');
+const pw1 = document.querySelector('.pw-1');
+const email2 = document.querySelector('.email-2');
+const pw2 = document.querySelector('.pw-2');
+
 const submitBtn = document.querySelector('#submit-btn');
 const signinBtn = document.querySelector('#signin-btn');
 
@@ -17,6 +20,7 @@ const registerh2 = document.querySelector('.register');
 
 const toRegister = document.querySelector('.to-register');
 
+// header section signin, register form, highlight border activate
 formHeader.addEventListener('click', function (e) {
 
     if (e.target.classList.contains('signin')) {
@@ -44,6 +48,7 @@ formHeader.addEventListener('click', function (e) {
 })
 
 
+// to create account, open register
 toRegister.addEventListener('click', function () {
     // register form active
     registerForm.style.display = 'flex';
@@ -55,9 +60,20 @@ toRegister.addEventListener('click', function () {
 })
 
 
-form.addEventListener('input', function (event) {
+// form validation
 
-    if (validateInputs(form.id)) {
+
+signinForm.addEventListener('input', function (event) {
+    startValidate(event, signinForm.id, email1, pw1);
+})
+registerForm.addEventListener('input', function (event) {
+    startValidate(event, registerForm.id, email2, pw2);
+})
+
+function startValidate(event, id, email, pw) {
+    console.log('validate starts')
+    if (validateInputs(id, email, pw)) {
+        console.log('validating errors')
         event.preventDefault();
         submitBtn.disabled = true;
         signinBtn.disabled = true;
@@ -66,16 +82,16 @@ form.addEventListener('input', function (event) {
         submitBtn.disabled = false;
         signinBtn.disabled = false;
     }
+}
 
-})
-
-function validateInputs(id) {
+function validateInputs(id, email, password) {
     const nameVal = username.value.trim();
     const emailVal = email.value.trim();
     const passwordVal = password.value.trim();
     let isError = false;
 
     if (id == 'register') {
+        console.log('validating register errors')
 
         if (nameVal === '') {
             isError = true;
@@ -85,20 +101,28 @@ function validateInputs(id) {
     }
 
     if (emailVal === '') {
+        console.log('validating register email 1')
+
         isError = true;
         showErrMsg(email, "please enter email");
     }
     else if (!validateEmail(emailVal)) {
+        console.log('validating register email 2')
+
         isError = true;
         showErrMsg(email, "invalid email");
     }
     else hideErrMsg(email);
 
     if (passwordVal === '') {
+        console.log('validating register p 1')
+
         isError = true;
         showErrMsg(password, "please enter password");
     }
     else if (passwordVal.length < 6) {
+        console.log('validating register p 2')
+
         isError = true;
         showErrMsg(password, "password must be atleast 6 characters");
     }
@@ -138,3 +162,13 @@ const validateEmail = (email) => {
 textArea.addEventListener('input', function () {
     charCount.textContent = textArea.value.length;
 })
+
+// // notification
+// const registerN = document.querySelector('register-n');
+// const signinN = document.querySelector('signin-n');
+
+// submitBtn.addEventListener('click', function () {
+//     registerForm.style.display = 'none';
+//     signinForm.style.display = 'none';
+//     registerN.style.display = 'block';
+// })
