@@ -1,0 +1,135 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: #c4c4c4;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container__form {
+    border-radius: 20px;
+    padding: 20px;
+    width: 400px;
+    background-color: whitesmoke;
+}
+
+.heading {
+    font-weight: 600;
+    margin-bottom: 2rem;
+    text-align: center;
+    padding: 4px;
+    width: 40%;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+}
+
+.form__section {
+    display: grid;
+}
+
+form button {
+    padding: 10px 22px;
+    font-weight: 600;
+    font-size: 16px;
+    margin: 0 auto;
+    border-radius: 5px;
+    border: none;
+    background-color: blue;
+    color: white;
+    cursor: pointer;
+}
+
+form button:disabled {
+    background-color: lightgray;
+    color: gray;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+form button:hover {
+    transform: scale(1.05);
+    transition: .5s ease;
+}
+
+form label {
+    font-weight: 500;
+}
+
+form input {
+    border: none;
+    border-bottom: 1px solid blue;
+    font-size: 16px;
+    background: transparent;
+    padding: 10px 0;
+}
+
+form input:focus,
+textarea:focus {
+    outline: none;
+}
+
+form textarea {
+    min-height: 100px;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 10px;
+    border: none;
+    border: 1px solid rgba(0, 0, 255, 0.5);
+    background: transparent;
+
+}
+
+.err-msg {
+    font-size: 10px;
+    color: red;
+    height: 15px;
+}
+
+.show-err {
+    border-color: red;
+}
+
+
+.form__header {
+    display: flex;
+    justify-content: space-around;
+    cursor: pointer;
+}
+
+.heading.border {
+    border-bottom: solid blue 4px;
+}
+
+.notification {
+    border: solid green;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    background-color: rgba(144, 238, 144, 0.664);
+}
+
+.form__section.textarea {
+    position: relative;
+}
+
+.counter {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 12px;
+}
