@@ -23,8 +23,8 @@
     <div class="container">
         <div class="container__form">
             <div class="form__header">
-                <h2 class="heading login">Login</h2>
-                <h2 class="heading register">Register</h2>
+                <h2 class="heading signin">Sign In</h2>
+                <h2 class="heading register border">Register</h2>
             </div>
             <div class="notification" style="display: none;">
                 <p>
@@ -32,30 +32,56 @@
                     <i class="fa-solid fa-circle-check" style="color: green;font-size: 20px;"></i>
                 </p>
             </div>
-            <form action="#">
-                <div class="form__section">
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" placeholder="Enter your name">
-                    <p class="err-msg"></p>
-                </div>
-                <div class="form__section">
-                    <label for="email">Email:</label>
-                    <input type="text" id="email" placeholder="example@email.com">
-                    <p class="err-msg"></p>
-                </div>
-                <div class="form__section">
-                    <label for="password">Password:</label>
-                    <input type="password" id="password" min="6">
-                    <p class="err-msg"></p>
-                </div>
-                <div class="form__section textarea">
-                    <label for="bio">Bio:</label>
-                    <textarea type="textarea" id="bio" placeholder="type your message" maxlength="200"></textarea>
-                    <p class="counter"><span class="charcount">0</span>/200</p>
-                </div>
+            <div class="sections">
+                <!-- Sign In Form -->
+                <form action="index.html" id="signin" style="display: none;">
+                    <div class="form__section">
+                        <label for="email">Email:</label>
+                        <input type="text" id="email" placeholder="example@email.com">
+                        <p class="err-msg"></p>
+                    </div>
+                    <div class="form__section">
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" min="6">
+                        <p class="err-msg"></p>
+                    </div>
 
-                <button id="submit-btn" disabled>Submit</button>
-            </form>
+                    <p style="color: gray; font-size: 12px;">Forgot Password?</p>
+
+                    <button id="signin-btn" disabled>Sign In</button>
+
+                    <p style="text-align: right;color: gray; font-size: 12px;">Don't have an account? <span
+                            class="to-register" style="color: blue;border-bottom: solid blue 1px;cursor:pointer;">Create
+                            Now</span>
+                    </p>
+                </form>
+
+                <!-- Register Form -->
+                <form action="index.html" id="register">
+                    <div class="form__section">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" placeholder="Enter your name">
+                        <p class="err-msg"></p>
+                    </div>
+                    <div class="form__section">
+                        <label for="email">Email:</label>
+                        <input type="text" id="email" placeholder="example@email.com">
+                        <p class="err-msg"></p>
+                    </div>
+                    <div class="form__section">
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" min="6">
+                        <p class="err-msg"></p>
+                    </div>
+                    <div class="form__section textarea">
+                        <label for="bio">Bio:</label>
+                        <textarea type="textarea" id="bio" placeholder="type your message" maxlength="200"></textarea>
+                        <p class="counter"><span class="charcount">0</span>/200</p>
+                    </div>
+
+                    <button id="submit-btn" disabled>Submit</button>
+                </form>
+            </div>
         </div>
     </div>
 

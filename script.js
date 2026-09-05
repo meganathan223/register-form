@@ -1,53 +1,88 @@
 const form = document.querySelector('form');
+const signinForm = document.getElementById('signin');
+const registerForm = document.getElementById('register');
+
 const username = document.querySelector('#name');
 const email = document.querySelector('#email');
 const password = document.querySelector('#password');
 const submitBtn = document.querySelector('#submit-btn');
+const signinBtn = document.querySelector('#signin-btn');
 
 const textArea = document.querySelector('#bio');
 const charCount = document.querySelector('.charcount')
 
-const formh2 = document.querySelector('.form__header');
-const loginh2 = document.querySelector('.login');
+const formHeader = document.querySelector('.form__header');
+const signinh2 = document.querySelector('.signin');
 const registerh2 = document.querySelector('.register');
 
-formh2.addEventListener('click', function (e) {
-    console.log(e.target)
-    if (e.target.classList.contains('login')) {
-        loginh2.classList.add('border');
+const toRegister = document.querySelector('.to-register');
+
+formHeader.addEventListener('click', function (e) {
+
+    if (e.target.classList.contains('signin')) {
+        // signin 
+
+        // border bottom
+        signinh2.classList.add('border');
         registerh2.classList.remove('border');
+
+        // signin form active
+        signinForm.style.display = 'flex';
+        registerForm.style.display = 'none';
     }
     if (e.target.classList.contains('register')) {
+        // register 
+
+        //border bottom
         registerh2.classList.add('border');
-        loginh2.classList.remove('border');
+        signinh2.classList.remove('border');
+
+        // register form active
+        registerForm.style.display = 'flex';
+        signinForm.style.display = 'none';
     }
 })
+
+
+toRegister.addEventListener('click', function () {
+    // register form active
+    registerForm.style.display = 'flex';
+    signinForm.style.display = 'none';
+
+    //border bottom
+    registerh2.classList.add('border');
+    signinh2.classList.remove('border');
+})
+
 
 form.addEventListener('input', function (event) {
 
-    if (validateInputs()) {
+    if (validateInputs(form.id)) {
         event.preventDefault();
         submitBtn.disabled = true;
+        signinBtn.disabled = true;
     }
     else {
         submitBtn.disabled = false;
+        signinBtn.disabled = false;
     }
 
 })
 
-function validateInputs() {
+function validateInputs(id) {
     const nameVal = username.value.trim();
     const emailVal = email.value.trim();
     const passwordVal = password.value.trim();
     let isError = false;
 
+    if (id == 'register') {
 
-
-    if (nameVal === '') {
-        isError = true;
-        showErrMsg(username, "please enter your name");
+        if (nameVal === '') {
+            isError = true;
+            showErrMsg(username, "please enter your name");
+        }
+        else hideErrMsg(username);
     }
-    else hideErrMsg(username);
 
     if (emailVal === '') {
         isError = true;

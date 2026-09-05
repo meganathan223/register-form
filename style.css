@@ -21,6 +21,7 @@ body {
     padding: 20px;
     width: 400px;
     background-color: whitesmoke;
+    min-height: 600px;
 }
 
 .heading {
