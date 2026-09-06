@@ -61,19 +61,28 @@ toRegister.addEventListener('click', function () {
 
 
 // form validation
+const section = document.querySelector('.sections');
+section.addEventListener('click', function (event) {
 
-
-signinForm.addEventListener('input', function (event) {
-    startValidate(event, signinForm.id, email1, pw1);
-})
-registerForm.addEventListener('input', function (event) {
-    startValidate(event, registerForm.id, email2, pw2);
+    // console.log('section', event.target, event.target.id, event.target.form)
+    // console.log(event.target.form.id, 'form name')
+    const sectionForm = event.target.form;
+    if (sectionForm.id == 'signin') {
+        sectionForm.addEventListener('input', function (event) {
+            startValidate(event, sectionForm.id, email1, pw1);
+        })
+    }
+    if (sectionForm.id == 'register') {
+        sectionForm.addEventListener('input', function (event) {
+            startValidate(event, sectionForm.id, email2, pw2);
+        })
+    }
 })
 
 function startValidate(event, id, email, pw) {
-    console.log('validate starts')
+    // console.log('validate starts')
     if (validateInputs(id, email, pw)) {
-        console.log('validating errors')
+        // console.log('validating errors')
         event.preventDefault();
         submitBtn.disabled = true;
         signinBtn.disabled = true;
@@ -91,8 +100,6 @@ function validateInputs(id, email, password) {
     let isError = false;
 
     if (id == 'register') {
-        console.log('validating register errors')
-
         if (nameVal === '') {
             isError = true;
             showErrMsg(username, "please enter your name");
@@ -101,28 +108,20 @@ function validateInputs(id, email, password) {
     }
 
     if (emailVal === '') {
-        console.log('validating register email 1')
-
         isError = true;
         showErrMsg(email, "please enter email");
     }
     else if (!validateEmail(emailVal)) {
-        console.log('validating register email 2')
-
         isError = true;
         showErrMsg(email, "invalid email");
     }
     else hideErrMsg(email);
 
     if (passwordVal === '') {
-        console.log('validating register p 1')
-
         isError = true;
         showErrMsg(password, "please enter password");
     }
     else if (passwordVal.length < 6) {
-        console.log('validating register p 2')
-
         isError = true;
         showErrMsg(password, "password must be atleast 6 characters");
     }
