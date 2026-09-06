@@ -63,7 +63,8 @@ form button:disabled {
     pointer-events: none;
 }
 
-form button:hover {
+form button:hover,
+.notification button:hover {
     transform: scale(1.05);
     transition: .5s ease;
 }

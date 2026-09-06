@@ -162,12 +162,22 @@ textArea.addEventListener('input', function () {
     charCount.textContent = textArea.value.length;
 })
 
-// // notification
-// const registerN = document.querySelector('register-n');
-// const signinN = document.querySelector('signin-n');
+// notification
+const registerN = document.querySelector('.register-n');
+const signinN = document.querySelector('.signin-n');
 
-// submitBtn.addEventListener('click', function () {
-//     registerForm.style.display = 'none';
-//     signinForm.style.display = 'none';
-//     registerN.style.display = 'block';
-// })
+submitBtn.addEventListener('click', function (event) {
+    event.preventDefault()
+    registerForm.style.display = 'none';
+    signinForm.style.display = 'none';
+    registerN.style.display = 'block';
+
+})
+
+signinBtn.addEventListener('click', function (event) {
+    event.preventDefault()
+    registerForm.style.display = 'none';
+    signinForm.style.display = 'none';
+    signinN.style.display = 'block';
+
+})
